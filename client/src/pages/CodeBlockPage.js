@@ -20,7 +20,7 @@ const CodeBlockPage = () => {
 
     // יצירת חיבור Socket.io
     useEffect(() => {
-        const newSocket = io('http://localhost:5000');
+        const newSocket = io('https://online-code-platform-server.onrender.com');
         setSocket(newSocket);
 
         // האזנה לאירועים
@@ -80,7 +80,7 @@ const CodeBlockPage = () => {
     useEffect(() => {
         const fetchBlockTitle = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/code-blocks/${id}`);
+                const response = await fetch(`https://online-code-platform-server.onrender.com/api/code-blocks/${id}`);
                 if (!response.ok) {
                     throw new Error('שגיאה בטעינת בלוק הקוד');
                 }

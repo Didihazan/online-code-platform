@@ -11,7 +11,7 @@ const LobbyPage = () => {
         // פונקציה לטעינת רשימת בלוקי הקוד מהשרת
         const fetchCodeBlocks = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/code-blocks');
+                const response = await fetch('https://online-code-platform-server.onrender.com/api/code-blocks');
                 if (!response.ok) {
                     throw new Error('שגיאה בטעינת בלוקי הקוד');
                 }
