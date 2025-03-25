@@ -22,7 +22,7 @@ const server = http.createServer(app);
 // הגדרת Socket.IO
 const io = socketIo(server, {
     cors: {
-        origin: 'http://localhost:3000', // כתובת הקליינט
+        origin: 'https://online-code-platform-client.onrender.com',
         methods: ['GET', 'POST']
     }
 });
