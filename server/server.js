@@ -4,6 +4,7 @@ const socketIo = require('socket.io');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
+const path = require('path');
 
 const CodeBlock = require('./models/CodeBlock');
 
@@ -260,7 +261,15 @@ console.log('End');
 seedDatabase();
 
 // הפעלת השרת
+
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
     console.log(`השרת פועל בפורט ${PORT}`);
+});
+
+// הוסף את זה לפני השורה האחרונה (לפני server.listen)
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
